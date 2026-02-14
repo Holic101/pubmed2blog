@@ -1,0 +1,35 @@
+{
+  "name": "pubmed2blog",
+  "version": "1.0.0",
+  "description": "CLI tool that transforms PubMed papers into SEO-optimized healthcare blog articles",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "pubmed2blog": "./bin/pubmed2blog.js"
+  },
+  "scripts": {
+    "start": "node bin/pubmed2blog.js"
+  },
+  "keywords": [
+    "pubmed",
+    "healthcare",
+    "blog",
+    "seo",
+    "llm",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "fast-xml-parser": "^4.4.1",
+    "enquirer": "^2.4.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/pubmed2blog"
+  }
+}

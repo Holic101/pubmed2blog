@@ -1,0 +1,57 @@
+{
+  "tier1": {
+    "description": "Top medical/science journals (IF > 50)",
+    "journals": [
+      "N Engl J Med",
+      "Lancet",
+      "JAMA",
+      "BMJ",
+      "Nature",
+      "Science",
+      "Cell",
+      "Nat Med",
+      "JAMA Intern Med",
+      "Lancet Oncol",
+      "Lancet Neurol",
+      "Ann Intern Med"
+    ]
+  },
+  "tier2": {
+    "description": "High-impact specialty journals (IF 15-50)",
+    "journals": [
+      "Circulation",
+      "Eur Heart J",
+      "J Clin Oncol",
+      "Nat Aging",
+      "JAMA Cardiol",
+      "JAMA Oncol",
+      "JAMA Neurol",
+      "Br J Sports Med",
+      "Diabetes Care",
+      "Gut",
+      "J Gerontol A Biol Sci Med Sci",
+      "Age Ageing",
+      "GeroScience",
+      "Aging Cell",
+      "Cell Metab",
+      "Nat Commun"
+    ]
+  },
+  "tier3": {
+    "description": "Relevant specialty journals (IF 5-15)",
+    "journals": [
+      "J Am Geriatr Soc",
+      "Maturitas",
+      "Menopause",
+      "Nutrients",
+      "Clin Nutr",
+      "Eur J Prev Cardiol",
+      "Prev Med",
+      "Front Aging Neurosci",
+      "Biogerontology",
+      "Rejuvenation Res",
+      "Exp Gerontol",
+      "J Cachexia Sarcopenia Muscle"
+    ]
+  }
+}

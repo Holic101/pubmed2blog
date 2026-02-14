@@ -1,0 +1,117 @@
+{
+  "longevity_core": {
+    "description": "Core MeSH terms for longevity/aging relevance",
+    "terms": [
+      "Aging",
+      "Longevity",
+      "Preventive Medicine",
+      "Biomarkers",
+      "Cardiorespiratory Fitness"
+    ],
+    "freetext_fallback": [
+      "aging",
+      "longevity",
+      "age-related",
+      "lifespan",
+      "healthspan",
+      "preventive",
+      "biomarker"
+    ]
+  },
+  "disease_categories": {
+    "cardiovascular": {
+      "mesh": ["Cardiovascular Diseases", "Heart Failure", "Atherosclerosis", "Myocardial Infarction"],
+      "freetext": ["cardiovascular", "heart disease", "atherosclerosis", "cardiac"]
+    },
+    "cancer": {
+      "mesh": ["Neoplasms", "Early Detection of Cancer", "Liquid Biopsy"],
+      "freetext": ["cancer screening", "tumor", "oncology", "liquid biopsy"]
+    },
+    "neurodegeneration": {
+      "mesh": ["Neurodegenerative Diseases", "Alzheimer Disease", "Cognitive Dysfunction"],
+      "freetext": ["neurodegeneration", "cognitive decline", "dementia", "brain aging"]
+    },
+    "metabolic": {
+      "mesh": ["Metabolic Diseases", "Diabetes Mellitus, Type 2", "Metabolic Syndrome"],
+      "freetext": ["metabolic", "insulin resistance", "diabetes", "obesity"]
+    },
+    "musculoskeletal": {
+      "mesh": ["Sarcopenia", "Osteoporosis", "Frailty"],
+      "freetext": ["sarcopenia", "muscle loss", "frailty", "bone density"]
+    },
+    "hormonal": {
+      "mesh": ["Menopause", "Testosterone", "Hormone Replacement Therapy"],
+      "freetext": ["menopause", "hormone therapy", "HRT", "testosterone", "estrogen"]
+    },
+    "fatigue": {
+      "mesh": ["Fatigue Syndrome, Chronic", "Fatigue", "Burnout, Professional"],
+      "freetext": ["chronic fatigue", "burnout", "fatigue", "exhaustion"]
+    }
+  },
+  "keywords": {
+    "biological_age": {
+      "search": "biological age OR epigenetic clock OR DNA methylation age",
+      "mesh_boost": ["Epigenomics", "DNA Methylation", "Aging"]
+    },
+    "whole_body_mri": {
+      "search": "whole body MRI screening OR full body MRI OR total body MRI",
+      "mesh_boost": ["Magnetic Resonance Imaging", "Mass Screening", "Early Detection of Cancer"]
+    },
+    "vo2max": {
+      "search": "VO2max OR cardiorespiratory fitness OR aerobic capacity",
+      "mesh_boost": ["Cardiorespiratory Fitness", "Oxygen Consumption", "Exercise Test"]
+    },
+    "biomarker_testing": {
+      "search": "biomarker panel OR blood biomarker aging OR proteomics aging",
+      "mesh_boost": ["Biomarkers", "Proteomics", "Aging"]
+    },
+    "liquid_biopsy": {
+      "search": "liquid biopsy cancer screening OR circulating tumor DNA OR ctDNA screening",
+      "mesh_boost": ["Liquid Biopsy", "Circulating Tumor DNA", "Early Detection of Cancer"]
+    },
+    "nad_therapy": {
+      "search": "NAD+ supplementation OR nicotinamide riboside OR NMN",
+      "mesh_boost": ["NAD", "Dietary Supplements", "Aging"]
+    },
+    "plasmapheresis": {
+      "search": "plasmapheresis aging OR plasma exchange rejuvenation OR young plasma",
+      "mesh_boost": ["Plasmapheresis", "Aging", "Rejuvenation"]
+    },
+    "rapamycin": {
+      "search": "rapamycin aging OR rapalog longevity OR mTOR inhibitor aging",
+      "mesh_boost": ["Sirolimus", "TOR Serine-Threonine Kinases", "Aging"]
+    },
+    "supplement_stack": {
+      "search": "supplement longevity OR nutraceutical aging OR evidence-based supplementation",
+      "mesh_boost": ["Dietary Supplements", "Longevity", "Aging"]
+    },
+    "menopause": {
+      "search": "menopause longevity OR hormone replacement therapy cardiovascular OR perimenopause health",
+      "mesh_boost": ["Menopause", "Hormone Replacement Therapy", "Cardiovascular Diseases"]
+    },
+    "chronic_fatigue": {
+      "search": "chronic fatigue syndrome OR burnout executive OR fatigue biomarker",
+      "mesh_boost": ["Fatigue Syndrome, Chronic", "Burnout, Professional", "Biomarkers"]
+    },
+    "preventive_check": {
+      "search": "preventive health screening OR health check-up effectiveness OR executive health assessment",
+      "mesh_boost": ["Mass Screening", "Preventive Medicine", "Health Status"]
+    },
+    "sleep_optimization": {
+      "search": "sleep quality mortality OR sleep optimization health OR circadian rhythm aging",
+      "mesh_boost": ["Sleep", "Circadian Rhythm", "Mortality"]
+    },
+    "cardiovascular_prevention": {
+      "search": "cardiovascular risk prevention OR primary prevention cardiovascular OR ASCVD risk",
+      "mesh_boost": ["Cardiovascular Diseases", "Primary Prevention", "Risk Factors"]
+    },
+    "longevity_medicine": {
+      "search": "longevity medicine OR precision prevention OR proactive health",
+      "mesh_boost": ["Longevity", "Precision Medicine", "Preventive Medicine"]
+    },
+    "preventive_screening": {
+      "search": "asymptomatic screening outcome OR health screening healthy adults OR presymptomatic detection benefit OR preventive diagnostics vs symptomatic OR whole body screening incidental findings",
+      "mesh_boost": ["Mass Screening", "Early Detection of Cancer", "Asymptomatic Diseases", "Preventive Health Services", "Diagnostic Screening Programs"]
+    }
+  }
+}

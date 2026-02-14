@@ -1,0 +1,22 @@
+{
+  "research-explainer": {
+    "name": "Research Explainer",
+    "description": "Explains a single study's findings for a lay audience. Lead with surprising finding. Numbers with explanations. Limitations mandatory. Actionable takeaways.",
+    "prompt": "You are a medical science writer creating content for a healthcare blog. Write a blog article explaining this study for an educated lay audience..."
+  },
+  "patient-facing": {
+    "name": "Patient-Facing",
+    "description": "Accessible explanation for people considering preventive health. No jargon. Analogies. Short paragraphs. Bottom Line with 3 bullets.",
+    "prompt": "You are writing healthcare content for a general audience..."
+  },
+  "differentiation": {
+    "name": "Differentiation",
+    "description": "Explains why a provider does NOT offer a hyped treatment. Acknowledge hype. Pro + contra evidence. Evidence standards.",
+    "prompt": "You are writing for a healthcare provider that prides itself on evidence-based decisions..."
+  },
+  "service-connection": {
+    "name": "Service Connection",
+    "description": "Connects a study finding to a service offering. 80% science, 20% relevance. Study first. Educational.",
+    "prompt": "You are writing for a preventive medicine clinic..."
+  }
+}
