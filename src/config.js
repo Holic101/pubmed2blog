@@ -38,11 +38,13 @@ export function save(config) {
  */
 export async function validateApiKey(provider, apiKey, model) {
   if (provider === 'anthropic') {
+    const isOAT = apiKey && apiKey.startsWith('sk-ant-oat')
+    const authHeaders = isOAT ? { Authorization: `Bearer ${apiKey}` } : { 'x-api-key': apiKey }
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
+        ...authHeaders,
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({

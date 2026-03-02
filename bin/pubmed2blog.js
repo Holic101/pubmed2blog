@@ -9,6 +9,7 @@ import * as config from '../src/config.js'
 import { discover } from '../src/pubmed.js'
 import { extract } from '../src/fulltext.js'
 import { generate } from '../src/generator.js'
+import { reviewAll } from '../src/reviewer.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -105,6 +106,19 @@ program
     }
     
     console.log('\n✅ Pipeline complete!\n')
+  })
+
+// review command
+program
+  .command('review')
+  .description('Review all generated articles for AI-speak, facts, and brand voice')
+  .option('-d, --dir <path>', 'Output directory to review', './output')
+  .option('--skip-llm', 'Skip LLM review, use regex only')
+  .action(async (options) => {
+    const results = await reviewAll(options.dir)
+    const approved = results.filter(r => r.verdict === 'pass').length
+    const revision = results.filter(r => r.verdict === 'revise').length
+    console.log(`\n📊 Review complete: ${approved} approved, ${revision} need revision`)
   })
 
 // config command
