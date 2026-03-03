@@ -7,35 +7,104 @@ import path from 'path'
 import { callLLM } from './providers/index.js'
 import * as config from './config.js'
 
+// Based on Ole Lehmann's Voice DNA banned phrases + custom additions
+// Source: https://x.com/itsolelehmann/status/2028497454635888982
 const AI_SPEAK_PATTERNS = [
-  /—/g,                                    // Em-dashes
+  // === FORMATTING (FATAL) ===
+  /—/g,                                    // Em-dashes — NEVER use
+
+  // === Dead AI Language (DE + EN) ===
+  /in der heutigen/gi,                     // "In der heutigen [Zeit/Welt]..."
+  /in today'?s/gi,                         // "In today's [anything]..."
   /es ist wichtig zu beachten/gi,
-  /in der heutigen zeit/gi,
-  /zusammenfassend l[äa]sst sich sagen/gi,
-  /zweifellos/gi,
-  /ohne zweifel/gi,
-  /revolution[äa]r/gi,
-  /bahnbrechend/gi,
-  /game.?changer/gi,
-  /nicht zu untersch[äa]tzen/gi,
-  /it'?s worth noting/gi,
+  /es ist erw[äa]hnenswert/gi,
   /it'?s important to note/gi,
-  /in today'?s world/gi,
-  /in conclusion/gi,
-  /undoubtedly/gi,
-  /groundbreaking/gi,
-  /cutting.?edge/gi,
-  /paradigm shift/gi,
-  /holistic/gi,
-  /synerg/gi,
-  /leverage/gi,
-  /robust/gi,
-  /comprehensive/gi,
+  /it'?s worth noting/gi,
   /delve/gi,
-  /tapestry/gi,
+  /dive into/gi,
+  /eintauchen/gi,
+  /unpack/gi,
+  /harness/gi,
+  /leverage/gi,
+  /utilize/gi,
   /landscape/gi,
   /realm/gi,
+  /robust/gi,
+  /game.?changer/gi,
+  /cutting.?edge/gi,
+  /straightforward/gi,
+  /i'?d be happy to help/gi,
+  /in order to/gi,
+  /um zu(?:\s)/gi,                         // German "in order to" (when unnecessary)
+
+  // === Dead Transitions ===
+  /furthermore/gi,
+  /additionally/gi,
+  /moreover/gi,
+  /dar[üu]ber hinaus/gi,                   // German "furthermore"
+  /moving forward/gi,
+  /at the end of the day/gi,
+  /to put this in perspective/gi,
+  /was dies besonders interessant macht/gi,
+  /what makes this particularly interesting/gi,
+  /die implikationen/gi,
+  /the implications here/gi,
+  /in other words/gi,
+  /mit anderen worten/gi,
+  /it goes without saying/gi,
+  /es versteht sich von selbst/gi,
+  /zusammenfassend l[äa]sst sich sagen/gi,
+
+  // === Engagement Bait ===
+  /let that sink in/gi,
+  /read that again/gi,
+  /full stop/gi,
+  /this changes everything/gi,
+  /dies [äa]ndert alles/gi,
+
+  // === AI Cringe ===
+  /supercharge/gi,
+  /unlock/gi,
+  /future.?proof/gi,
+  /zukunftssicher/gi,
+  /10x/gi,
+  /the ai revolution/gi,
+  /in the age of ai/gi,
+  /im zeitalter der ki/gi,
+
+  // === Generic Insider Claims ===
+  /here'?s the part nobody/gi,
+  /what nobody tells you/gi,
+  /was niemand erz[äa]hlt/gi,
+  /most people don'?t realize/gi,
+  /die meisten wissen nicht/gi,
+
+  // === The Big One (FATAL) — "Not X. This is Y." pattern ===
+  /(?:this|das) isn'?t .{2,30}\. (?:this|das) is /gi,
+  /(?:not|nicht) .{2,30}\. (?:sondern|but|rather) /gi,
+  /forget .{2,30}\. this is /gi,
+  /vergessen sie .{2,30}\. das ist /gi,
+  /less .{2,15},\s*more /gi,
+  /weniger .{2,15},\s*mehr /gi,
+
+  // === Additional medical/science AI-isms ===
+  /revolution[äa]r/gi,
+  /bahnbrechend/gi,
+  /zweifellos/gi,
+  /ohne zweifel/gi,
+  /undoubtedly/gi,
+  /groundbreaking/gi,
+  /paradigm shift/gi,
+  /paradigmenwechsel/gi,
+  /holistic/gi,
+  /ganzheitlich/gi,                        // Only when used as filler
+  /synerg/gi,
+  /comprehensive/gi,
+  /umfassend/gi,                           // When used as filler
+  /tapestry/gi,
   /pivotal/gi,
+  /entscheidend(?:e[rn]?)?\s+rolle/gi,     // "entscheidende Rolle" — often AI filler
+  /nicht zu untersch[äa]tzen/gi,
   /navigat(e|ing)/gi,
 ]
 
